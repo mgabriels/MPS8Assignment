@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:People"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             x:Class="People.MainPage">
+    <StackLayout>
+        <!--This is where im adding my  title of my online shop-->
+        <Frame BackgroundColor="Turquoise" Padding="35" CornerRadius="20">
+            <Label Text="Online with ME" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" FontAttributes="Italic"/>
+        </Frame>
+        <!--This is where my title information and details end-->
+           
+        <!--grid means we creating the table -->
+        <Grid>
+        <!--Creating the table-->
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  />
+                
+            </Grid.ColumnDefinitions>
+
+           <Entry x:Name="newPerson"
+           Placeholder="Enter name" />
+
+            <Entry x:Name="newGender"
+                   Grid.Row="1"
+                   Placeholder="Gender" />
+                
+            <Entry x:Name="newTShirtSize"
+                   Grid.Row="2"
+                    Placeholder="T-Shirt Size" />
+
+            <Entry x:Name="newTShirt_Color"
+                   Grid.Row="3"
+                   Placeholder="T-Shirt Color" />
+
+            <Entry x:Name="newShipping_Address"
+                   Grid.Row="4"
+                   Placeholder="Shipping Address" />
+
+            <Entry x:Name="newDate_of_Order"
+                   Grid.Row="5"
+                   Placeholder="Date of Order" />
+
+            <Button Text="Order Now"
+            Grid.Row="6"
+            Clicked="OnNewButtonClicked" />
+
+            <Button Text="Placed Orders"
+            Grid.Row="7"
+            Clicked="OnGetButtonClicked" />
+
+            <ListView x:Name="peopleList"
+              Grid.Row="9">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Height="30">
+                        <StackLayout Padding="5">
+                            <Label Text="{Binding Name}" />
+                                <Label Text="{Binding Gender}" />
+                                <Label Text="{Binding TShirt_Size}" />
+                                <Label Text="{Binding TShirt_Color}" />
+                            </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+
+        <Label x:Name="statusMessage"
+           Grid.Row="7" />
+    </StackLayout>
+    
+    
+</ContentPage>
